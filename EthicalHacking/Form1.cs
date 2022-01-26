@@ -77,8 +77,22 @@ namespace EthicalHacking
             if (textBox2.Text != "")
             {
                 c = textBox2.Text;
-                button1.Enabled = true;
-                textBox2.Clear();
+
+                using (SqlConnection connection = new SqlConnection(c))
+                {
+                    try
+                    {
+                        connection.Open();
+                        button1.Enabled = true;
+                        textBox2.Clear();
+                    }
+                    catch (SqlException)
+                    {
+                        button1.Enabled = false;
+                        textBox2.Clear();
+                    }
+                }
+               
             }
         }
     }

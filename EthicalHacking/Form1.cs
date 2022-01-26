@@ -52,8 +52,9 @@ namespace EthicalHacking
                         return dt;
                     }
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
+                    MessageBox.Show(ex.ToString());
                     return null;
                 }
 
@@ -77,6 +78,7 @@ namespace EthicalHacking
             {
                 c = textBox2.Text;
                 button1.Enabled = true;
+                textBox2.Clear();
             }
         }
     }

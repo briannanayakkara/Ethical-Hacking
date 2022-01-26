@@ -8,9 +8,10 @@ namespace EthicalHacking
 {
     public class ConectionString
     {
-        public static string cnn()
+        
+        public static string cnn(string c)
         {
-            string con = @"Data Source=SOURCE-2-SERVER\NAV;Initial Catalog=SOLOSYS_TT;User ID=punchinout;Password=source2412;";
+            string con = @""+c+"";
 
             return con;
         }

@@ -14,10 +14,12 @@ namespace EthicalHacking
 {
     public partial class Form1 : Form
     {
-        public string q;
+        public string q,c;
+        
         public Form1()
         {
             InitializeComponent();
+            button1.Enabled = false;
         }
 
 
@@ -31,7 +33,7 @@ namespace EthicalHacking
 
                 try
                 {
-                    using (var cnn = new SqlConnection(ConectionString.cnn()))
+                    using (var cnn = new SqlConnection(ConectionString.cnn(c)))
                     {
 
                         cnn.Open();
@@ -67,6 +69,15 @@ namespace EthicalHacking
             }
             else
                 MessageBox.Show("Access denied");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text != "")
+            {
+                c = textBox2.Text;
+                button1.Enabled = true;
+            }
         }
     }
 }

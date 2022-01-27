@@ -20,6 +20,7 @@ namespace EthicalHacking
         {
             InitializeComponent();
             button1.Enabled = false;
+            combobox();
         }
 
 
@@ -60,13 +61,25 @@ namespace EthicalHacking
 
         }
 
+        void combobox ()
+        {
+            comboBox1.Items.Add("Monitoring");
+            comboBox1.Items.Add("Mailsend");
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox1.Text == "Monitoring")
+            if (textBox1.Text != "" || comboBox1.Text != "")
             {
-                ShowList(textBox1.Text);
-                label1.Text = q;
+                if (textBox1.Text.Length > 3)
+                {
+                    ShowList(textBox1.Text);
+                    label1.Text = q;
+                }
+                else
+                    ShowList(comboBox1.Text);
+                    label1.Text = q;
 
+                
             }
             else
                 MessageBox.Show("Access denied");
